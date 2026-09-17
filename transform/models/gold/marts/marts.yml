@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_calendar
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_merk
+    columns:
+      - name: merk_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_brandstof
+    columns:
+      - name: brandstof_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_voertuig
+    columns:
+      - name: kenteken
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_voertuig_emissies
+    columns:
+      - name: kenteken
+        tests:
+          - unique
+          - not_null
+      - name: merk_key
+        tests:
+          - relationships:
+              to: ref('dim_merk')
+              field: merk_key
+      - name: brandstof_key
+        tests:
+          - relationships:
+              to: ref('dim_brandstof')
+              field: brandstof_key
