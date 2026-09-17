@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: rdw_raw
+    meta:
+      external_location: "read_parquet('../data/raw/{name}_raw.parquet')"
+    tables:
+      - name: rdw_voertuigen
+      - name: rdw_brandstof

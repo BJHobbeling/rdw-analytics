@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_brandstof_geaggregeerd
+    description: "Geaggregeerde brandstoftabel op kentekenniveau (1 rij per voertuig)."
+    columns:
+      - name: kenteken
+        description: "Unieke primaire sleutel na brandstofaggregatie."
+        tests:
+          - unique
+          - not_null

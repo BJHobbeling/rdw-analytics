@@ -1,0 +1,8 @@
+rdw_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: rdw_warehouse.duckdb
+      extensions:
+        - parquet

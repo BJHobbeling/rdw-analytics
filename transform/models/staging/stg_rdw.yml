@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_rdw_voertuigen
+    description: "Schoongemaakte staging tabel voor RDW gekentekende voertuigen."
+    columns:
+      - name: kenteken
+        description: "Primaire sleutel van het voertuig."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_rdw_brandstof
+    description: "Schoongemaakte staging tabel voor RDW brandstof (bevat meerdere rijen per kenteken bij hybrides)."
+    columns:
+      - name: kenteken
+        description: "Sleutel van het voertuig (niet uniek op staging level)."
+        tests:
+          - not_null
