@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Environment & Secrets
+.env
+transform/profiles.yml
+
+# Database & Data
+*.duckdb
+*.duckdb.wal
+data/raw/
+
+# dbt artifacts
+transform/target/
+transform/dbt_packages/
+transform/logs/
+
+# Power BI
+~$*.pbix
