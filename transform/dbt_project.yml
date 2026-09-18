@@ -18,8 +18,12 @@ clean-targets:
 models:
   rdw_analytics:
     staging:
+      +schema: staging
       +materialized: view
     intermediate:
+      +schema: intermediate
       +materialized: view
-    marts:
+    gold:                    # Aangepast van 'marts' naar 'gold'
+      +schema: gold
       +materialized: table
+

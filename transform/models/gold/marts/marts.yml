@@ -2,46 +2,52 @@ version: 2
 
 models:
   - name: dim_calendar
+    description: >
+      Dimensie tabel voor kalenderdata, van 1940 tot 2039. Geeft details over attributen als dag, week, maand, kwartaal en jaar voor gebruik.
     columns:
       - name: date_key
-        tests:
-          - unique
-          - not_null
-
-  - name: dim_merk
-    columns:
-      - name: merk_key
+        description: Unieke sleutel voor elke datum in de kalender, in het formaat YYYYMMDD.
         tests:
           - unique
           - not_null
 
   - name: dim_brandstof
+    description: >
+      Dimensie tabel voor brandstoftypes. Bevat unieke brandstoftypen en hun beschrijvingen, afgeleid van de RDW-voertuigen dataset.
     columns:
       - name: brandstof_key
+        description: Unieke sleutel voor elke brandstof in de dimensie tabel.
         tests:
           - unique
           - not_null
 
-  - name: dim_voertuig
+  - name: dim_voertuigen
+    description: >
+      Dimensie tabel voor voertuigen. Bevat unieke voertuigen geïdentificeerd door hun kenteken, met details zoals merk, model en bouwjaar.
     columns:
       - name: kenteken
+        description: Unieke identifier voor elk voertuig.
         tests:
           - unique
           - not_null
 
   - name: fct_voertuig_emissies
+    description: >
+      Feiten tabel die voertuigemissies koppelt aan de dimensies van kalender, brandstof en voertuig. Bevat emissiegegevens zoals CO2-uitstoot. 
     columns:
       - name: kenteken
+        description: Unieke identifier voor elk voertuig.
         tests:
           - unique
           - not_null
-      - name: merk_key
-        tests:
-          - relationships:
-              to: ref('dim_merk')
-              field: merk_key
       - name: brandstof_key
         tests:
           - relationships:
               to: ref('dim_brandstof')
               field: brandstof_key
+      - name: date_key
+        description: Datumssleutel die verwijst naar de kalenderdimensie; kan leeg zijn als de RDW-bron geen toelatingsdatum bevat.
+        tests:
+          - relationships:
+              to: ref('dim_calendar')
+              field: date_key

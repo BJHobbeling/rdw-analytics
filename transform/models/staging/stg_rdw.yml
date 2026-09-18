@@ -17,3 +17,12 @@ models:
         description: "Sleutel van het voertuig (niet uniek op staging level)."
         tests:
           - not_null
+      - name: brandstof_omschrijving
+        description: "Brandstoftype zoals aangeleverd door RDW."
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - kenteken
+            - brandstof_omschrijving

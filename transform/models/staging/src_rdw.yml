@@ -2,8 +2,16 @@ version: 2
 
 sources:
   - name: rdw_raw
-    meta:
-      external_location: "read_parquet('../data/raw/{name}_raw.parquet')"
+    schema: main
+    description: "Brongegevens van de RDW over voertuigen en brandstof."
     tables:
       - name: rdw_voertuigen
+        description: >
+          Raw data van RDW voertuigen dataset, inclusief voertuigkenmerken en emissiegegevens.
+        meta:
+          external_location: "read_parquet('../data/raw/rdw_voertuigen_raw.parquet')"
       - name: rdw_brandstof
+        description: >
+          Raw data van RDW brandstof dataset, inclusief brandstoftypen en emissiegegevens.
+        meta:
+          external_location: "read_parquet('../data/raw/rdw_brandstof_raw.parquet')"

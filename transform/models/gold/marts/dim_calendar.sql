@@ -2,7 +2,7 @@ with
     date_sequence as (
         -- Vervanging van explode/sequence door DuckDB's range()
         select cast(range as date) as full_date
-        from range(date '2000-01-01', date '2040-01-01', interval '1 day')
+        from range(date '1940-01-01', date '2040-01-01', interval '1 day')
     ),
 
     week_anchors as (
