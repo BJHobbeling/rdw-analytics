@@ -157,6 +157,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local data artefacts
+*.duckdb
+*.parquet
+
 # Spyder project settings
 .spyderproject
 .spyproject
