@@ -45,8 +45,14 @@ models:
           - relationships:
               to: ref('dim_brandstof')
               field: brandstof_key
-      - name: date_key
-        description: Datumssleutel die verwijst naar de kalenderdimensie; kan leeg zijn als de RDW-bron geen toelatingsdatum bevat.
+      - name: datum_eerste_toelating_key
+        description: Datumssleutel voor de eerste toelating die verwijst naar de kalenderdimensie.
+        tests:
+          - relationships:
+              to: ref('dim_calendar')
+              field: date_key
+      - name: datum_tenaamstelling_key
+        description: Datumssleutel voor de tenaamstelling die verwijst naar de kalenderdimensie.
         tests:
           - relationships:
               to: ref('dim_calendar')

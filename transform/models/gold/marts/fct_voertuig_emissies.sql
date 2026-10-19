@@ -14,7 +14,10 @@ select
     v.kenteken,
 
     -- Foreign Keys naar de dimensies
-    cast(strftime(v.datum_eerste_toelating, '%Y%m%d') as int) as date_key,
+    -- Datum keys voor Role-Playing Dimensions
+    cast(strftime(datum_eerste_toelating, '%Y%m%d') as integer) as datum_eerste_toelating_key,
+    cast(strftime(datum_tenaamstelling, '%Y%m%d') as integer) as datum_tenaamstelling_key,
+    cast(strftime(vervaldatum_apk, '%Y%m%d') as integer) as vervaldatum_apk_key,
     md5(coalesce(b.brandstof_type, 'Onbekend')) as brandstof_key,
 
     -- Quantitative Measures

@@ -13,6 +13,7 @@ select
     datum_tenaamstelling,
     bouwjaar,
     massa_ledig_voertuig_kg,
+    vervaldatum_apk,
 
     -- Business Logic 1: Gewichtsklasse
     case

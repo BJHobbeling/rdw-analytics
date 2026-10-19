@@ -11,6 +11,7 @@ select
     trim(handelsbenaming) as handelsbenaming,
     strptime(datum_eerste_toelating, '%Y%m%d')::date as datum_eerste_toelating,
     strptime(datum_tenaamstelling, '%Y%m%d')::date as datum_tenaamstelling,
+    strptime(vervaldatum_apk, '%Y%m%d')::date as vervaldatum_apk,
     try_cast(massa_ledig_voertuig as integer) as massa_ledig_voertuig_kg,
     try_cast(datum_eerste_toelating as integer) // 10000 as bouwjaar
 
